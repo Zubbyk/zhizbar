@@ -1,12 +1,7 @@
-/*************************
-    CONFIG
-**************************/
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRwAKxfinC68si-vhxyGtLs-JSkEg7bkmgDK2ZBFGWxllrqL_Q1DfK-8SGepZ32EJkScI5B7sSWMogZ/pub?gid=0&single=true&output=csv';
 const ORDER_POST_URL = "https://script.google.com/macros/s/AKfycbyAkQ-BRLVLVKUN_p0t0ZjvlywQQ1rVXSz_x8sciuF9ysTszseHqetpE-bkIgaWVmwkRw/exec";
 
-/*************************
-    CART SYSTEM
-**************************/
+
 let cart = [];
 
 function init() {
@@ -43,9 +38,7 @@ function init() {
     });
 }
 
-/*************************
-    ADD / REMOVE ITEMS
-**************************/
+
 function addToCart(id, name, price) {
     cart.push({ id, name, price });
     updateCartUI();
@@ -56,9 +49,7 @@ function removeFromCart(id) {
     updateCartUI();
 }
 
-/*************************
-    UI UPDATE
-**************************/
+
 function updateCartUI() {
     document.getElementById('cartCount').innerText = cart.length;
     const total = cart.reduce((s,i)=>s+i.price,0);
@@ -86,9 +77,7 @@ function showOrderModal() { document.getElementById('orderModal').style.display 
 function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
 function hideSuccess() { document.getElementById('successMessage').style.display = 'none'; }
 
-/*************************
-    SEND ORDER
-**************************/
+
 async function sendOrder(){
     if(cart.length === 0){
         alert("Корзина пустая");
